@@ -256,7 +256,7 @@ function Start-ExchangeInstallation
     {
         $disk = Mount-LabIsoImage -ComputerName $prepMachine -IsoPath $exchangeInstallFile.FullName -PassThru -SupressOutput
 
-        $commandLine = '/InstallWindowsComponents /PrepareSchema'
+        $commandLine = '/PrepareSchema'
         $result = Start-ExchangeInstallSequence -Activity 'Exchange PrepareSchema' -ComputerName $prepMachine -CommandLine $commandLine -ErrorAction Stop
         Set-Variable -Name "AL_Result_PrepareSchema_$prepMachine" -Scope Global -Value $result -Force
 
